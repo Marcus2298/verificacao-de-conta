@@ -7,22 +7,11 @@ router.get('/', function (req, res, next) {
     });
 });
 
-router.get('/banco/agencia/conta', async(req, res) => {
-           
-                try {
-                     237 == new Bank(
-                        237,
-                        3726,
-                        null,
-                        "0127039",
-                        7
-                    )
-                    res.send("Banco Valido")
+router.get('/:banco/:conta/:digito', async (req, res) => {
 
-                } catch (error) {
-                    res.send(error)
-                    console.log(error)
-                }
-            });
 
-        module.exports = router;
+    res.send({req.params.banco, req.params.conta, req.params.digito})
+
+});
+
+module.exports = router;
